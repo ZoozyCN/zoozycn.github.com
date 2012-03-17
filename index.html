@@ -1,13 +1,22 @@
 ---
 layout: default
-title: NULL
+title: Zoozy 
 ---
 
-Welcome!
+<style>
+h2 {
+	font-size:18px;
+	font-weight:bold;
+	color:black;
+}
+</style>
 
-{% for post in site.posts limit:5 %}
-<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-{{ post.content  }}
-<em>Posted on {{ post.date | date_to_long_string }}.</em>
-{% endfor %}
+<section id="article">
+	<h2>Article</h2>
+	<ul>
+		{% for post in site.posts %}
+			<li><time datetime="{{ post.date | date: %Y-%m-%d }}">{{ post.date | date_to_string }}</time> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+		{% endfor %}
+	</ul>
+</section>
 
